@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#38271F">
+  <title>Golden Crust · Bakery POS</title>
+  <meta name="description" content="Golden Crust bakery point of sale and business management (local demo).">
+  <link rel="icon" href="assets/icons/wheat.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Icon sprite: one consistent outline set, referenced with <use href="#i-name"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V5"/><path d="M12 9c-2.6 0-4.2-1.8-4.2-4.2 2.6 0 4.2 1.8 4.2 4.2zM12 9c2.6 0 4.2-1.8 4.2-4.2-2.6 0-4.2 1.8-4.2 4.2z"/><path d="M12 14c-2.6 0-4.2-1.8-4.2-4.2 2.6 0 4.2 1.8 4.2 4.2zM12 14c2.6 0 4.2-1.8 4.2-4.2-2.6 0-4.2 1.8-4.2 4.2z"/><path d="M12 19c-2.6 0-4.2-1.8-4.2-4.2 2.6 0 4.2 1.8 4.2 4.2zM12 19c2.6 0 4.2-1.8 4.2-4.2-2.6 0-4.2 1.8-4.2 4.2z"/><path d="M12 5V2"/></symbol>
+  <symbol id="i-overview" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+  <symbol id="i-pos" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V4h10v7M10 7.5h4M7 15h2M11 15h2M15 15h2M7 18h10"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 2.5h14V22l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h3.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7.5 16v-4M12 16V8M16.5 16v-6"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9.5h13.5a3 3 0 0 1 3 3V13M16 14.5h.01"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 9.2a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.6-2.8 2.6M12 17h.01"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.5-4.5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-4.5M12 8h.01"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sort" viewBox="0 0 24 24"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></symbol>
+  <symbol id="i-sidebar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 10l-2 2 2 2"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="m5.3 5.3 13.4 13.4"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></symbol>
+  <symbol id="i-trend-up" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-trend-down" viewBox="0 0 24 24"><path d="m22 17-8.5-8.5-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6.5" rx="6" ry="3"/><path d="M3 6.5v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M9 14.5v3c0 1.7 2.7 3 6 3s6-1.3 6-3v-5c0-1.6-2.4-2.9-5.5-3"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M4 10h16M5.5 10v8M9.8 10v8M14.2 10v8M18.5 10v8M12 3l9 5H3z"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 7H6"/></symbol>
+  <symbol id="i-restock" viewBox="0 0 24 24"><path d="M21 12V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 1 .3"/><path d="M3.3 7 12 12l8.7-5M12 22V12M18 15v6M15 18h6"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8.5" ry="3"/><path d="M3.5 5v14c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3V5M3.5 12c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9.5 4.5 4h15L21 9.5M3 9.5a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M5 12v9h14v-9M10 21v-5h4v5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 0 1 0 19 14.5 14.5 0 0 1 0-19z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2.5H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5z"/><path d="M14 2.5v6h6M8.5 13h7M8.5 17h5"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+</svg>
+
+<div class="app" id="app">
+  <aside class="sidebar" id="sidebar" aria-label="Primary">
+    <div class="sidebar-brand">
+      <span class="brand-mark" aria-hidden="true"><svg class="i"><use href="#i-wheat"></use></svg></span>
+      <span class="brand-text">
+        <span class="brand-name" id="brand-name">Golden Crust</span>
+        <span class="brand-sub">Bakery manager</span>
+      </span>
+      <button type="button" class="icon-btn sidebar-close" id="sidebar-close" aria-label="Close menu"><svg class="i" aria-hidden="true"><use href="#i-x"></use></svg></button>
+    </div>
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      <ul id="nav-list">
+        <li><a href="#/overview" data-route="overview" title="Overview"><svg class="i" aria-hidden="true"><use href="#i-overview"></use></svg><span class="nav-label">Overview</span></a></li>
+        <li><a href="#/pos" data-route="pos" title="Point of Sale"><svg class="i" aria-hidden="true"><use href="#i-pos"></use></svg><span class="nav-label">Point of Sale</span></a></li>
+        <li><a href="#/products" data-route="products" title="Products"><svg class="i" aria-hidden="true"><use href="#i-tag"></use></svg><span class="nav-label">Products</span></a></li>
+        <li><a href="#/inventory" data-route="inventory" title="Inventory"><svg class="i" aria-hidden="true"><use href="#i-box"></use></svg><span class="nav-label">Inventory</span><span class="nav-count" id="nav-stock-count" hidden></span></a></li>
+        <li><a href="#/transactions" data-route="transactions" title="Transactions"><svg class="i" aria-hidden="true"><use href="#i-receipt"></use></svg><span class="nav-label">Transactions</span></a></li>
+        <li><a href="#/reports" data-route="reports" title="Reports"><svg class="i" aria-hidden="true"><use href="#i-chart"></use></svg><span class="nav-label">Reports</span></a></li>
+        <li><a href="#/expenses" data-route="expenses" title="Expenses"><svg class="i" aria-hidden="true"><use href="#i-wallet"></use></svg><span class="nav-label">Expenses</span></a></li>
+        <li><a href="#/settings" data-route="settings" title="Settings"><svg class="i" aria-hidden="true"><use href="#i-settings"></use></svg><span class="nav-label">Settings</span></a></li>
+        <li class="nav-sep"><a href="#/help" data-route="help" title="Help &amp; tutorials"><svg class="i" aria-hidden="true"><use href="#i-help"></use></svg><span class="nav-label">Help &amp; tutorials</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-foot">
+      <p class="demo-note"><span class="demo-dot" aria-hidden="true"></span><span class="nav-label">Local demo · data stays in this browser</span></p>
+      <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar" aria-expanded="true" aria-controls="sidebar">
+        <svg class="i" aria-hidden="true"><use href="#i-sidebar"></use></svg><span class="nav-label">Collapse</span>
+      </button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+  <div class="main-col">
+    <header class="topbar" id="topbar">
+      <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+        <svg class="i" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+      <div class="topbar-title">
+        <p class="breadcrumb" id="breadcrumb">Golden Crust</p>
+        <h1 id="page-title" tabindex="-1">Overview</h1>
+      </div>
+
+      <div class="global-search" id="global-search">
+        <svg class="i" aria-hidden="true"><use href="#i-search"></use></svg>
+        <input type="search" id="global-search-input" placeholder="Search products or receipts…" autocomplete="off"
+               aria-label="Search products or transactions" role="combobox" aria-expanded="false" aria-controls="global-search-results" aria-autocomplete="list">
+        <kbd aria-hidden="true">/</kbd>
+        <div class="popover search-results" id="global-search-results" role="listbox" hidden></div>
+      </div>
+
+      <div class="topbar-actions">
+        <span class="topbar-date" id="topbar-date"></span>
+        <button type="button" class="icon-btn search-btn" id="search-btn" aria-label="Search products or receipts" aria-controls="global-search" aria-expanded="false">
+          <svg class="i" aria-hidden="true"><use href="#i-search"></use></svg>
+        </button>
+        <div class="popover-anchor">
+          <button type="button" class="icon-btn" id="notif-btn" aria-label="Stock alerts" aria-haspopup="true" aria-expanded="false" aria-controls="notif-panel">
+            <svg class="i" aria-hidden="true"><use href="#i-bell"></use></svg>
+            <span class="notif-dot" id="notif-dot" hidden></span>
+          </button>
+          <div class="popover notif-panel" id="notif-panel" hidden></div>
+        </div>
+        <div class="popover-anchor">
+          <button type="button" class="profile-btn" id="profile-btn" aria-haspopup="true" aria-expanded="false" aria-controls="profile-menu">
+            <span class="avatar" aria-hidden="true">AD</span>
+            <span class="profile-name">Admin</span>
+            <svg class="i i-sm" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+          </button>
+          <div class="popover profile-menu" id="profile-menu" role="menu" hidden></div>
+        </div>
+        <a class="btn btn-primary" href="#/pos" id="new-sale-btn" aria-label="New sale"><svg class="i" aria-hidden="true"><use href="#i-plus"></use></svg><span class="btn-label">New sale</span></a>
+      </div>
+    </header>
+
+    <main id="main" class="main" tabindex="-1" aria-live="off">
+      <div class="page-loading" role="status"><span class="spinner" aria-hidden="true"></span>Loading Golden Crust…</div>
+    </main>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<div id="print-root" aria-hidden="true"></div>
+
+<noscript><p class="noscript">Golden Crust needs JavaScript enabled to run.</p></noscript>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
